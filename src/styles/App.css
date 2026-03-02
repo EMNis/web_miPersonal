@@ -537,3 +537,19 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+/* ── TIDIO WIDGETS ────────────────────────────────── */
+/* Empujar el widget de Tidio por encima del botón azul. */
+#tidio-chat-iframe,
+.tidio-chat-iframe,
+iframe[id*="tidio"],
+iframe[src*="tidio"],
+.tidio-chat-floating-button,
+.tidio-floating-button,
+.tidio-widget,
+.tidio-chat-widget,
+.tidio__widget,
+.tidio-button-container,
+[class*="tidio-chat-button"],
+[data-testid*="tidio"] {
+  bottom: 80px !important;
+}
