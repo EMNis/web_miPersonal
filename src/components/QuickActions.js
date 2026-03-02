@@ -18,13 +18,15 @@ const actions = [
   { icon: HiOutlineCreditCard,   label: 'Débito automático',   type: 'toast' },
   { icon: HiOutlineTruck,        label: 'Mis pedidos',         type: 'toast' },
   { icon: HiOutlineUser,         label: 'Mi perfil',           type: 'toast' },
-  { icon: HiOutlinePlusCircle,   label: 'Más opciones',        type: 'toast' },
+  { icon: HiOutlinePlusCircle,   label: 'Más opciones',        type: 'contact' },
 ];
 
 function QuickActions({ onModal, onToast }) {
   const handleClick = (action) => {
     if (action.type === 'modal') {
       onModal(action.key);
+    } else if (action.type === 'contact') {
+      onContact();
     } else {
       onToast(`Abriendo ${action.label}...`);
     }

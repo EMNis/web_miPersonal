@@ -8,12 +8,14 @@ import QuickActions from './components/QuickActions';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
 import Toast from './components/Toast';
+import ContactModal from './components/ContactModal';
 import FloatingButton from './components/FloatingButton';
 
 function App() {
   const [modal, setModal] = useState(null); // { title, body }
   const [toast, setToast] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const showModal = (type) => {
     const modals = {
@@ -51,12 +53,12 @@ function App() {
         <ServiceHeader onServiceClick={() => showModal('servicio')} />
         <ServiceCard onPackClick={() => showModal('packs')} onToast={showToast} />
         <BillingCard />
-        <QuickActions onModal={showModal} onToast={showToast} />
+        <QuickActions onModal={showModal} onToast={showToast} onContact={() => setContactOpen(true)} />
       </main>
       <Footer />
       {modal && <Modal title={modal.title} body={modal.body} onClose={() => setModal(null)} />}
       <Toast message={toast} visible={toastVisible} />
-      <FloatingButton />
+      {contactOpen && <ContactModal onClose={() => setContactOpen(false)} />}
     </div>
   );
 }
