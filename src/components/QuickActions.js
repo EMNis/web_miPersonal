@@ -21,7 +21,7 @@ const actions = [
   { icon: HiOutlinePlusCircle,   label: 'Más opciones',        type: 'contact' },
 ];
 
-function QuickActions({ onModal, onToast }) {
+function QuickActions({ onModal, onToast, onContact }) {
   const handleClick = (action) => {
     if (action.type === 'modal') {
       onModal(action.key);
